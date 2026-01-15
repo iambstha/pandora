@@ -1,0 +1,44 @@
+# Pandora Configuration File
+# This file controls the behavior of Pandora
+# Some configurations are for future uses
+
+# Pandora Settings
+pandora_directory: "${user.home}/.pandora"
+backup_directory: "${user.home}/.pandora/backups"
+
+# Backup Settings
+backup_retention_days: 30
+auto_backup_enabled: true
+
+# Cloud Storage Settings
+cloud_provider: "google-drive"
+cloud_settings:
+  default_folder: "Pandora Backups"
+  encryption_enabled: true
+
+# Security Settings
+security:
+  max_login_attempts: 3
+  lockout_duration_minutes: 5
+  password_min_length: 12
+  require_strong_passwords: true
+
+# Logging Settings
+logging:
+  level: "INFO"  # DEBUG, INFO, WARN, ERROR
+  file_enabled: true
+  console_enabled: false
+  max_file_size_mb: 10
+  max_files: 5
+
+# UI Settings
+ui:
+  colored_output: true
+  show_timestamps: false
+  confirm_destructive_operations: true
+
+# Performance Settings
+performance:
+  memory_check_enabled: true
+  cache_encryption_keys: false
+  background_cleanup: true
