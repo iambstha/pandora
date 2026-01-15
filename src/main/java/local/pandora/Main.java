@@ -24,6 +24,7 @@ import static java.lang.System.*;
                 "  pandora init                    Initialize a new vault",
                 "  pandora add                     Add a new password entry",
                 "  pandora get <name>              Retrieve password entry",
+                "  pandora get <name> --copy       Copy password entry to the clipboard",
                 "  pandora list                    List all entries",
                 "  pandora update <name>           Update existing entry",
                 "  pandora delete <name>           Delete specific entry",
