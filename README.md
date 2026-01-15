@@ -49,18 +49,8 @@ mvn clean compile package
 ```
 
 ### First Time Setup
-```bash
-# Initialize a new vault
-java -jar target/pandora-1.0-SNAPSHOT.jar init
 
-# Add your first password entry
-java -jar target/pandora-1.0-SNAPSHOT.jar add
-
-# List all entries
-java -jar target/pandora-1.0-SNAPSHOT.jar list
-```
-
-## 📖 Usage
+Before executing commands below make sure to edit the `pandora` file that is in the project root directory and copy it to your `/usr/local/bin/` directory and make it executable with `chmod +x pandora`
 
 ### Basic Commands
 ```bash
@@ -112,20 +102,6 @@ pandora security generate
 pandora security audit
 ```
 
-## 📁 File Structure
-
-```
-~/.pandora/
-├── pandora.enc          # Main encrypted vault file
-├── backups/             # Local backups
-│   ├── pandora_backup_YYYYMMDD_HHMMSS.enc
-│   └── ...
-├── logs/                # Application logs
-│   └── pandora.log
-├── config.yaml          # Configuration file
-└── credentials.json      # Google Drive OAuth credentials
-```
-
 ## ⚙️ Configuration
 
 Edit `~/.pandora/config.yaml` to customize behavior:
@@ -157,50 +133,6 @@ require_uppercase: true
 # Logging Settings
 log_level: "INFO"
 log_file: "${user.home}/.pandora/logs/pandora.log"
-```
-
-## 🔧 Development
-
-### Project Structure
-```
-src/main/java/local/pandora/
-├── Main.java              # Application entry point
-├── command/               # CLI commands
-│   ├── AddCommand.java
-│   ├── ListCommand.java
-│   ├── GetCommand.java
-│   ├── UpdateCommand.java
-│   ├── DeleteCommand.java
-│   ├── InitCommand.java
-│   ├── UploadCommand.java
-│   ├── DownloadCommand.java
-│   ├── BackupCommand.java
-│   └── SecurityCommand.java
-├── storage/               # Data persistence
-│   ├── Vault.java
-│   ├── VaultEntry.java
-│   ├── VaultContainer.java
-│   ├── VaultFile.java
-│   └── VaultPaths.java
-├── crypto/                # Encryption utilities
-│   ├── CryptoUtils.java
-│   └── KeyDerivation.java
-├── cloud/                 # Cloud integration
-│   ├── VaultCloud.java
-│   └── DriveService.java
-├── exception/             # Custom exceptions
-│   ├── VaultException.java
-│   └── InvalidMasterPasswordException.java
-├── config/                # Configuration management
-│   └── VaultConfig.java
-├── logging/               # Logging utilities
-│   └── VaultLogger.java
-├── backup/                # Backup management
-│   └── VaultBackup.java
-├── security/              # Security utilities
-│   └── SecurityUtils.java
-└── util/                  # General utilities
-    └── Generator.java
 ```
 
 ### Build Commands
@@ -279,28 +211,6 @@ Pandora provides comprehensive logging for debugging and auditing:
 - INFO:  General information
 - DEBUG: Detailed debugging
 ```
-
-## 🔄 Migration from Vault CLI
-
-If you're migrating from the old Vault CLI:
-
-1. **Backup Existing Data**
-   ```bash
-   # Copy old vault file
-   cp ~/.vaultcli/vault.enc ~/.pandora/pandora.enc
-   ```
-
-2. **Copy Credentials**
-   ```bash
-   # Copy Google Drive credentials
-   cp ~/.vaultcli/credentials.json ~/.pandora/
-   ```
-
-3. **Verify Migration**
-   ```bash
-   # Test with new Pandora CLI
-   java -jar target/pandora-1.0-SNAPSHOT.jar list
-   ```
 
 ## 🐛 Troubleshooting
 
